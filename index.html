@@ -119,7 +119,14 @@
   .hero h1 {
     font-size: clamp(42px, 7.2vw, 84px);
     line-height: 1.02; letter-spacing: -0.02em;
-    max-width: 12ch;
+  }
+  .fit-line { display: table; white-space: nowrap; line-height: 1.02; }
+  .hero-ctas .btn { min-width: 0; }
+  @media (max-width: 560px) {
+    header.hero { padding: 96px 0 52px; }
+    .hero-ctas { margin-top: 24px; gap: 10px; }
+    .hero-ctas .btn { padding: 11px 20px; font-size: 14px; }
+    .hero .stat-strip { margin-top: 40px; }
   }
   .hero h1 .hollow {
     color: transparent;
@@ -311,7 +318,7 @@
     </video>
   </div>
   <div class="wrap hero-content">
-    <h1 class="display">Social Media, das <span class="hollow">Kunden</span> bringt.</h1>
+    <h1 class="display fit-headline"><span class="fit-line">Social Media,</span><span class="fit-line">das <span class="hollow">Kunden</span></span><span class="fit-line fit-follow">bringt.</span></h1>
     <div class="hero-ctas">
       <a class="btn" href="https://calendly.com/stickler-business/new-meeting" target="_blank" rel="noopener">Call buchen</a>
       <a class="btn ghost" href="#arbeit">Unsere Arbeit</a>
@@ -623,6 +630,28 @@
         cols[c].appendChild(im);
       }
     }
+  })();
+
+  (function () {
+    var lines = document.querySelectorAll(".fit-line");
+    if (!lines.length) return;
+    function fit() {
+      lines.forEach(function (el) {
+        if (el.classList.contains("fit-follow")) return;
+        el.style.fontSize = "100px";
+        var w = el.parentElement.clientWidth;
+        var tw = el.getBoundingClientRect().width;
+        if (tw > 0) el.style.fontSize = Math.max(28, 100 * w / tw * 0.995) + "px";
+      });
+      lines.forEach(function (el) {
+        if (el.classList.contains("fit-follow") && el.previousElementSibling) {
+          el.style.fontSize = el.previousElementSibling.style.fontSize;
+        }
+      });
+    }
+    fit();
+    window.addEventListener("resize", fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
   })();
 
   (function () {
