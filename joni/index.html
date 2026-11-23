@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de-AT" data-type="service" data-radius="soft" data-buttons="block" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jonathan Golden: Seite in Wartung</title>
+<meta name="description" content="Die Seite von Jonathan Golden wird gerade überarbeitet und ist bald wieder erreichbar.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23121214'/%3E%3Ccircle cx='16' cy='16' r='8.5' fill='none' stroke='%23f4f4f1' stroke-width='3.5'/%3E%3C/svg%3E" type="image/svg+xml">
+<meta name="theme-color" content="#121214">
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<link rel="stylesheet" href="../vali/assets/system.css">
+<link rel="stylesheet" href="../vali/assets/ui/cards.css">
+<link rel="stylesheet" href="../vali/assets/motion/motion.css">
+<link rel="stylesheet" href="../vali/assets/layout/layout.css">
+<style>
+  @font-face { font-family: "Archivo"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("../fonts/archivo.woff2") format("woff2"); }
+  @font-face { font-family: "Archivo Black"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/archivo-black.woff2") format("woff2"); }
+  /* altes valiundjoni-Logo: Archivo Black, "und" in Grau */
+  .nav__logo.wordmark { display: inline-block; gap: 0; font-family: "Archivo Black", Arial, sans-serif; font-weight: 400; font-size: 19px; letter-spacing: -0.02em; white-space: nowrap; }
+  .nav__logo.wordmark span { color: var(--muted); }
+  :root {
+    --p-bg: #121214; --p-surface: #1c1c1f; --p-ink: #f4f4f1; --p-muted: #b3b3b9;
+    --p-accent: #f4f4f1; --p-accent-ink: #121214; --p-action: #f4f4f1; --p-action-ink: #121214;
+    --p-inv-bg: #f4f4f1; --p-inv-surface: #e2e2df; --p-inv-ink: #121214; --p-inv-muted: #5e5e5e;
+    --p-inv-accent: #121214; --p-inv-accent-ink: #f4f4f1; --p-inv-action: #121214; --p-inv-action-ink: #f4f4f1;
+    --font-display: "Archivo", system-ui, sans-serif;
+    --font-text: "Archivo", system-ui, sans-serif;
+    --display-weight: 400; --display-tracking: -0.025em; --display-tracking-xl: -0.035em; --display-stretch: 110%; --ly-scale: 0.9;
+  }
+  .hero-visual .frame__img { object-position: 50% 12%; }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .hero-text.hero-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); column-gap: var(--gutter); align-items: stretch; }
+    .hero-split > .hero-copy { grid-column: 1; align-self: start; }
+    .hero-split > .hero-visual { grid-column: 2; flex: none; height: auto; min-height: 0; max-height: 820px; }
+  }
+  /* nie abschneiden: Abschnitte mindestens bildschirmhoch (min-height statt height), sie wachsen mit dem Inhalt */
+  main > section:not(.hero):not([data-moment]), footer.closing { height: auto; min-height: calc(var(--h, 1) * 100vh); min-height: calc(var(--h, 1) * 100svh); }
+  @media (max-height: 820px) {
+    main > section.hero { height: auto; min-height: 100vh; min-height: 100svh; }
+    .hero-split > .hero-visual { min-height: 380px; }
+  }
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Zum Inhalt</a>
+    <a class="nav__logo wordmark" href="../" aria-label="valiundjoni">vali<span>und</span>joni</a>
+    <nav class="nav__links" aria-label="Hauptmenü">
+      <div class="nav__item"><a class="nav__link" href="../vali/">Valentin</a></div>
+      <div class="nav__item"><a class="nav__link" href="./">Jonathan</a></div>
+    </nav>
+    <div class="nav__actions"><a class="nav__link" href="../#impressum">Impressum</a></div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menü">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap">
+      <div class="hero-text grid hero-split">
+        <div class="hero-copy span-5">
+          <h1 id="hero-h">Kamera und Schnitt aus Wien, bald wieder online.</h1>
+          <p class="t-lead">Die Seite von Jonathan Golden ist gerade in Wartung und wird überarbeitet. Bis dahin findest du Valentins Arbeit auf seiner Seite.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="../">Zur Auswahl</a>
+            <a class="btn btn--secondary" href="../vali/">Zu Valentins Seite</a>
+          </div>
+          <p class="t-small muted" style="margin-top: var(--s-6)"><a href="../#impressum">Impressum</a> &nbsp; <a href="../#datenschutz">Datenschutz</a></p>
+        </div>
+        <div class="hero-visual frame frame--photo span-6 start-7">
+          <img class="frame__img" src="jonathan.jpg" alt="Porträt von Jonathan Golden" width="720" height="912" fetchpriority="high">
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<script type="module" src="../vali/assets/system.js"></script>
+<script type="module" src="../vali/assets/motion/motion.js"></script>
+<script type="module" src="../vali/assets/layout/layout.js"></script>
+</body>
+</html>

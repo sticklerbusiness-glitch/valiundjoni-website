@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="de-AT" data-type="service" data-radius="soft" data-buttons="block" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Valentin Stickler: Reels für Betriebe in Wien</title>
+<meta name="description" content="Valentin Stickler plant, dreht und schneidet Reels für Betriebe und Marken in Wien. Zehn Videos mit echten Zahlen, seine Arbeitsweise und der Weg zum ersten Call.">
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="de_AT">
+<meta property="og:title" content="Valentin Stickler: Reels für Betriebe in Wien">
+<meta property="og:description" content="Reels, geplant, gedreht und geschnitten von einer Person. Mit Aufrufen, Likes und Kommentaren zu jedem Video.">
+<meta property="og:image" content="https://valiundjoni.at/vali/valentin.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23121214'/%3E%3Ccircle cx='16' cy='16' r='8.5' fill='none' stroke='%23f4f4f1' stroke-width='3.5'/%3E%3C/svg%3E" type="image/svg+xml">
+<meta name="theme-color" content="#121214">
+<link rel="canonical" href="https://valiundjoni.at/vali/">
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<style>
+  /* Schrift lokal (keine Drittserver, wie in der Datenschutzerklärung zugesagt) */
+  @font-face { font-family: "Archivo"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("../fonts/archivo.woff2") format("woff2"); }
+  /* start.mjs brand --page service --bg #121214 --ink #F4F4F1 --accent #F4F4F1 --surface #1C1C1F --muted #B3B3B9 --type archivo --radius soft */
+  :root {
+    --p-bg: #121214; --p-surface: #1c1c1f; --p-ink: #f4f4f1; --p-muted: #b3b3b9;
+    --p-accent: #f4f4f1; --p-accent-ink: #121214; --p-action: #f4f4f1; --p-action-ink: #121214;
+    --p-inv-bg: #f4f4f1; --p-inv-surface: #e2e2df; --p-inv-ink: #121214; --p-inv-muted: #5e5e5e;
+    --p-inv-accent: #121214; --p-inv-accent-ink: #f4f4f1; --p-inv-action: #121214; --p-inv-action-ink: #f4f4f1;
+    --font-display: "Archivo", system-ui, sans-serif;
+    --font-text: "Archivo", system-ui, sans-serif;
+    --display-weight: 400;
+    --display-tracking: -0.025em;
+    --display-tracking-xl: -0.035em;
+    --display-stretch: 110%;
+    --ly-scale: 0.9;
+  }
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js">
+<link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/pinned-chapters/moment.js">
+<style>
+  /* page CSS: nur der Video-Slider (Kunden-Slot mit echten Videos, Wunsch des Inhabers: ein Video, Pfeil weiter) */
+  .reel__info { grid-row: 1; }
+  .reel__stage { grid-row: 1; }
+  .reel__stage { position: relative; height: min(560px, calc(100svh - 340px)); border-radius: var(--r-lg); overflow: hidden; background: var(--surface); }
+  .reel__stage video { position: absolute; top: 0; bottom: 0; left: 50%; height: 100%; width: auto; aspect-ratio: 9 / 16; transform: translateX(-50%); object-fit: cover; display: block; background: #000; }
+  .reel__stage video[hidden] { display: none; }
+  .reel__info { display: flex; flex-direction: column; min-width: 0; min-height: 100%; }
+  .reel__item[hidden] { display: none; }
+  .reel__item h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.12; letter-spacing: -0.02em; max-width: 22ch; }
+  .reel__meta { margin: var(--s-5) 0 0; display: grid; gap: 0; }
+  .reel__meta > div { display: grid; grid-template-columns: 7.5em 1fr; gap: var(--s-4); padding: 10px 0; border-top: 1px solid var(--line); }
+  .reel__meta dt { color: var(--muted); }
+  .reel__meta dd { margin: 0; }
+  .reel__desc { margin-top: var(--s-4); color: var(--muted); max-width: 46ch; }
+  .reel__stats { margin: var(--s-6) 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-4); }
+  .reel__stats > div { border-top: 1px solid var(--line); padding-top: 12px; }
+  .reel__stats dt { color: var(--muted); font-size: var(--t-small); }
+  .reel__stats dd { margin: 4px 0 0; font-family: var(--font-display); font-size: clamp(22px, 2vw, 30px); line-height: 1.1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .reel__nav { margin-top: auto; padding-top: var(--s-6); display: flex; align-items: center; gap: var(--s-4); }
+  .reel__nav .btn { min-width: 48px; padding-inline: 0; width: 48px; }
+  .reel__count { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 4.5em; text-align: center; }
+  .reel__link { margin-left: auto; }
+  .reel__nav { flex-wrap: wrap; row-gap: var(--s-3); }
+  .reel__desc { margin-top: var(--s-3); }
+  #konzept .mo-pc__visual.mo-pc__visual--lit { background: var(--surface); color: var(--ink); }
+  .funnel { width: 100%; display: grid; gap: 12px; justify-items: center; }
+  .funnel__row { width: var(--w); display: flex; align-items: baseline; justify-content: center; gap: 12px; padding: 22px 16px; border-radius: var(--r-md, 12px); background: color-mix(in srgb, var(--ink) 10%, transparent); }
+  .funnel__row:nth-child(2) { background: color-mix(in srgb, var(--ink) 18%, transparent); }
+  .funnel__row:nth-child(3) { background: var(--ink); color: var(--bg); }
+  .funnel__row b { font-family: var(--font-display); font-weight: 400; font-size: clamp(20px, 2vw, 28px); letter-spacing: -0.01em; }
+  .funnel__row span { font-size: var(--t-small); opacity: .8; }
+  .partners { margin: 0; display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); gap: var(--gutter); min-height: min(640px, calc(100svh - 220px)); }
+  .partners > div { display: grid; place-items: center; background: #121214; border-radius: var(--r-lg); padding: var(--s-6) var(--s-7); }
+  .partners img { display: block; width: auto; max-width: 70%; }
+  .partners > div:nth-child(1) img { height: 64px; }
+  .partners > div:nth-child(2) img { height: 34px; }
+  .partners > div:nth-child(3) img { height: 72px; }
+  @media (max-width: 1023px) { .partners { min-height: 0; margin-top: var(--s-6); grid-template-rows: none; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } .partners > div { min-height: 88px; padding: 12px; } .partners img { max-width: 100%; } }
+  @media (max-width: 359px) { #ueber { --hm: 2; } }
+  @media (max-width: 639px) { .partners > div { min-height: 72px; padding-inline: 12px; } .partners > div:nth-child(1) img { height: 30px; } .partners > div:nth-child(2) img { height: 30px; width: auto; } .partners > div:nth-child(3) img { height: 34px; } }
+  @media (max-width: 639px) {
+    main > #konzept[data-moment]:not(.is-live) { min-height: calc(2 * 100lvh); }
+    #konzept[data-moment]:not(.is-live) .mo-pc__visual > img { aspect-ratio: 8 / 5; max-height: none; }
+    #konzept .mo-pc__visual.mo-pc__visual--lit { aspect-ratio: auto; padding: 16px; }
+    #konzept .funnel { gap: 8px; }
+    #konzept .funnel__row { padding: 12px; }
+  }
+  .reel__thumbs { display: none; }
+  @media (max-width: 1023px) {
+    .reel__thumbs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: var(--s-4); order: -1; }
+    .reel__thumbs button { all: unset; cursor: pointer; display: block; aspect-ratio: 3 / 4; border-radius: var(--r-sm, 8px); overflow: hidden; outline-offset: 2px; opacity: .55; transition: opacity .15s ease; }
+    .reel__thumbs button[aria-current="true"] { opacity: 1; box-shadow: 0 0 0 2px var(--ink); }
+    .reel__thumbs button:focus-visible { outline: 2px solid var(--ink); }
+    .reel__thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  }
+  @media (max-width: 359px) { .nav__logo { font-size: 15px; } }
+  @media (max-width: 1023px) {
+    .reel__info, .reel__stage { grid-row: auto; }
+    .reel__stage { height: auto; aspect-ratio: 3 / 5; order: -1; }
+    .reel__info { margin-top: var(--s-6); }
+    .reel__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .hero-text.hero-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); column-gap: var(--gutter); align-items: stretch; }
+    .hero-split > .hero-copy { grid-column: 1; align-self: start; }
+    .hero-split > .hero-visual { grid-column: 2; flex: none; height: auto; min-height: 0; max-height: 820px; }
+  }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .reel { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+    .reel > .reel__info { grid-column: 1; grid-row: 1; margin-top: 0; }
+    .reel > .reel__stage { grid-column: 2; grid-row: 1 / span 2; order: 0; height: auto; aspect-ratio: 9 / 16; margin-top: 0; }
+    .reel > .reel__thumbs { grid-column: 1; grid-row: 2; order: 0; margin-top: var(--s-5); align-self: start; }
+    .reel__link { margin-left: 0; flex-basis: 100%; }
+    footer.closing { min-height: 0; }
+    .reel__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  /* nie abschneiden: Abschnitte mindestens bildschirmhoch (min-height statt height), sie wachsen mit dem Inhalt */
+  main > section:not(.hero):not([data-moment]), footer.closing { height: auto; min-height: calc(var(--h, 1) * 100vh); min-height: calc(var(--h, 1) * 100svh); }
+  @media (max-width: 639px) { main > section:not(.hero):not([data-moment]) { min-height: calc(var(--hm, var(--h, 1)) * 100vh); min-height: calc(var(--hm, var(--h, 1)) * 100lvh); } }
+  main > section.section:not(.hero):not([data-moment]) > .wrap { height: auto; }
+  main > section.section:not(.hero):not([data-moment]) > .wrap > .fill { flex: 1 0 auto; min-height: auto; }
+  @media (max-height: 820px) {
+    main > section.hero { height: auto; min-height: 100vh; min-height: 100svh; }
+    .hero-split > .hero-visual { min-height: 380px; }
+  }
+</style>
+</head>
+<body>
+<!-- type: service (Valentin Stickler, Reels für Betriebe in Wien)
+     deal: hero split (film zuerst gezogen, neu gezogen: kein Querformat-Film vorhanden), nav nav-mega,
+     close close-photo, als Kopfzeile von close-word gesetzt (kein Foto breiter als 720 px), footer footer-dark (footer-visit neu gezogen: keine Adresse zum Besuchen), rhythm surface-pairs,
+     buttons block, mark ring; palette: Farben der Hauptseite valiundjoni.at über start.mjs brand; type archivo
+     moments: pinned-chapters in #konzept (vier Grundsätze, je ein Bild aus eigener Arbeit) -->
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Zum Inhalt</a>
+    <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Valentin Stickler</a>
+    <nav class="nav__links" aria-label="Hauptmenü">
+      <div class="nav__item">
+        <a class="nav__link" href="#arbeit">Videos <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu">
+          <div class="wrap grid">
+            <div class="menu-col span-3">
+              <p class="t-label">Videos</p>
+              <a href="#arbeit">Zehn Reels<span>mit Aufrufen, Likes und Kommentaren</span></a>
+              <a href="#konzept">Vier Grundsätze<span>so entsteht jedes Video</span></a>
+            </div>
+            <div class="menu-col span-3">
+              <p class="t-label">Kunden</p>
+              <a href="#arbeit">Viral House<span>Werbe-Reels für @wien_eu</span></a>
+              <a href="#arbeit">doc2you und Music &amp; Media School<span>laufende Betreuung</span></a>
+            </div>
+            <a class="menu-card span-3 start-10" href="#kontakt">
+              <div class="panel"><img class="frame__img" src="img/selbsttest-anruf.jpg" alt="Zwei Darsteller stoppen beim Selbsttest für doc2you die Zeit eines Anrufs" loading="lazy"></div>
+              <span class="t-card">15 Minuten Call</span>
+              <span class="t-small muted">kostenlos, mit drei Ideen für deinen Account</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav__item"><a class="nav__link" href="#ueber">Über mich</a></div>
+      <div class="nav__item"><a class="nav__link" href="#konzept">Arbeitsweise</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="https://calendly.com/stickler-business/new-meeting" target="_blank" rel="noopener">Call buchen</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menü">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap">
+      <div class="hero-text grid hero-split">
+        <div class="hero-copy span-5">
+          <h1 id="hero-h">Ich mache Reels für Betriebe in Wien.</h1>
+          <p class="t-lead">Ich bin Valentin Stickler. Ich plane die Videos mit dir, drehe bei dir vor Ort und schneide sie selbst. Nochdazu arbeite ich im Schnitt bei Live-Sportproduktionen fürs Fernsehen.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="https://calendly.com/stickler-business/new-meeting" target="_blank" rel="noopener">Call buchen<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+            <a class="btn btn--secondary" href="#arbeit">Videos ansehen</a>
+          </div>
+          <dl class="hero-facts">
+            <div><dt>Bestes Reel</dt><dd>729.121 Aufrufe</dd></div>
+            <div><dt>Live-TV</dt><dd>Sportschnitt</dd></div>
+            <div><dt>Standort</dt><dd>Wien</dd></div>
+          </dl>
+        </div>
+        <div class="hero-visual frame frame--photo span-6 start-7">
+          <img class="frame__img" src="valentin.jpg" style="--ly-pos: 50% 0%; object-position: 50% 0%" alt="Porträt von Valentin Stickler" width="720" height="900" fetchpriority="high" data-source="client" data-subject="Valentin Stickler">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="arbeit" style="--hm: 2" aria-labelledby="arbeit-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="arbeit-h">Zehn Reels, die ich gemacht habe</h2>
+      </div>
+      <div class="reel grid grid--top" data-reel>
+        <div class="reel__info span-5" aria-live="polite">
+          <article class="reel__item">
+            <h3>Skit für meinen Laufkanal</h3>
+            <dl class="reel__meta"><div><dt>Kunde</dt><dd>@stickley_running, mein eigener Kanal</dd></div><div><dt>Hook</dt><dd>„Can I see your Marathon time?“</dd></div></dl>
+            <p class="reel__desc">Kurze Szene über die Frage, die jeder Läufer kennt. Die Pointe sitzt in den ersten Sekunden, damit auch Leute dranbleiben, die mir noch nicht folgen.</p>
+            <dl class="reel__stats"><div><dt>Aufrufe</dt><dd>729.121</dd></div><div><dt>Likes</dt><dd>26.706</dd></div><div><dt>Kommentare</dt><dd>76</dd></div><div><dt>Shares</dt><dd>3.205</dd></div></dl>
+          </article>
+          <article class="reel__item" hidden>
+            <h3>Bubble Planet für Viral House</h3>
+            <dl class="reel__meta"><div><dt>Kunde</dt><dd>Viral House für @wien_eu, mit Bubble Planet</dd></div><div><dt>Hook</dt><dd>„Wiens neues Bällebad für Erwachsene“</dd></div></dl>
+            <p class="reel__desc">Moderation direkt im Bubble Planet Erlebnismuseum in Wien, mit Verlosung von Tickets.</p>
+            <dl class="reel__stats"><div><dt>Aufrufe, rund</dt><dd>136.900</dd></div><div><dt>Likes</dt><dd>1.311</dd></div><div><dt>Kommentare</dt><dd>194</dd></div></dl>
+          </article>
+          <article class="reel__item" hidden>
+            <h3>Interview für die Music &amp; Media School</h3>
+            <dl class="reel__meta"><div><dt>Kunde</dt><dd>Music &amp; Media School, Musikschule in Wien</dd></div><div><dt>Hook</dt><dd>„Startbudget 500 € als Musikproduzent?!“</dd></div></dl>
+            <p class="reel__desc">Ein Produzent beantwortet im Studio, was der Einstieg in die Musikproduktion kostet. Zahlen und Begriffe kommen als Einblendung.</p>
+            <dl class="reel__stats"><div><dt>Aufrufe, rund</dt><dd>5.700</dd></div><div><dt>Likes</dt><dd>47</dd></div><div><dt>Kommentare</dt><dd>5</dd></div></dl>
+          </article>
+          <article class="reel__item" hidden>
+            <h3>House of Banksy für Viral House</h3>
+            <dl class="reel__meta"><div><dt>Kunde</dt><dd>Viral House für @wien_eu, mit House of Banksy</dd></div><div><dt>Hook</dt><dd>„Banksy in Wien“</dd></div></dl>
+            <p class="reel__desc">Eine Darstellerin stellt die Banksy-Ausstellung in der METAStadt vor und ruft zum Ticket-Gewinnspiel auf.</p>
+            <dl class="reel__stats"><div><dt>Aufrufe, rund</dt><dd>101.300</dd></div><div><dt>Likes</dt><dd>1.371</dd></div><div><dt>Kommentare</dt><dd>283</dd></div></dl>
+          </article>
+          <article class="reel__item" hidden>
+            <h3>KiK-Produkttest für Viral House</h3>
+            <dl class="reel__meta"><div><dt>Kunde</dt><dd>Viral House für @wien_eu, mit KiK</dd></div><div><dt>Hook</dt><dd>„Festtags-Eleganz in Wien im Test“</dd></div></dl>
+            <p class="reel__desc">Festtagsmode von KiK im Test, gedreht im Geschäft, mit Verlosung von Gutscheinen.</p>
+            <dl class="reel__stats"><div><dt>Aufrufe, rund</dt><dd>109.000</dd></div><div><dt>Likes</dt><dd>1.357</dd></div><div><dt>Kommentare</dt><dd>412</dd></div></dl>
+          </article>
+          <article class="reel__item" hidden>
+            <h3>Relatable-Reel für meinen Laufkanal</h3>
+            <dl class="reel__meta"><div><dt>Kunde</dt><dd>@stickley_running, mein eigener Kanal</dd></div><div><dt>Hook</dt><dd>„Traurigster Moment all year“</dd></div></dl>
+            <p class="reel__desc">Ein Moment, in dem sich viele Läufer wiederfinden, erzählt über einen einzigen Text-Hook.</p>
+            <dl class="reel__stats"><div><dt>Aufrufe</dt><dd>679.785</dd></div><div><dt>Likes</dt><dd>10.729</dd></div><div><dt>Kommentare</dt><dd>59</dd></div><div><dt>Shares</dt><dd>1.550</dd></div></dl>
+          </article>
+          <article class="reel__item" hidden>
+            <h3>Vorher-Nachher für meinen Laufkanal</h3>
+            <dl class="reel__meta"><div><dt>Kunde</dt><dd>@stickley_running, mein eigener Kanal</dd></div><div><dt>Hook</dt><dd>„Day one, one day“</dd></div></dl>
+            <p class="reel__desc">Erster Lauf und heutiger Lauf nebeneinander, jeweils mit den Strava-Werten von damals und heute.</p>
+            <dl class="reel__stats"><div><dt>Aufrufe</dt><dd>102.652</dd></div><div><dt>Likes</dt><dd>3.112</dd></div><div><dt>Kommentare</dt><dd>13</dd></div><div><dt>Shares</dt><dd>110</dd></div></dl>
+          </article>
+          <article class="reel__item" hidden>
+            <h3>Challenge für meinen Laufkanal</h3>
+            <dl class="reel__meta"><div><dt>Kunde</dt><dd>@stickley_running, mein eigener Kanal</dd></div><div><dt>Hook</dt><dd>„Ich glaube, ich laufe einen Kilometer in … Minuten“</dd></div></dl>
+            <p class="reel__desc">Zwei Läufer schätzen, wie schnell sie einen Kilometer schaffen. Dann wird es getestet.</p>
+            <dl class="reel__stats"><div><dt>Aufrufe</dt><dd>61.697</dd></div><div><dt>Likes</dt><dd>491</dd></div><div><dt>Kommentare</dt><dd>18</dd></div><div><dt>Shares</dt><dd>33</dd></div></dl>
+          </article>
+          <article class="reel__item" hidden>
+            <h3>POV-Skit für doc2you</h3>
+            <dl class="reel__meta"><div><dt>Kunde</dt><dd>doc2you, Gesundheits-Startup aus Wien</dd></div><div><dt>Hook</dt><dd>„POV: Der Arzttermin, auf den du 3 Monate gewartet hast“</dd></div></dl>
+            <p class="reel__desc">Ein Alltagsmoment aus Sicht eines Patienten. Das Problem, das doc2you löst, versteht man ohne Erklärung.</p>
+            <dl class="reel__stats"><div><dt>Aufrufe, rund</dt><dd>2.200</dd></div><div><dt>Likes</dt><dd>43</dd></div><div><dt>Kommentare</dt><dd>1</dd></div></dl>
+          </article>
+          <article class="reel__item" hidden>
+            <h3>Selbsttest für doc2you</h3>
+            <dl class="reel__meta"><div><dt>Kunde</dt><dd>doc2you, Gesundheits-Startup aus Wien</dd></div><div><dt>Hook</dt><dd>„Wie lange dauert es, telefonisch einen Arzttermin zu buchen?“</dd></div></dl>
+            <p class="reel__desc">Wir rufen an und stoppen die Zeit. Die Frage im Hook wird erst am Ende beantwortet.</p>
+            <dl class="reel__stats"><div><dt>Aufrufe, rund</dt><dd>2.000</dd></div><div><dt>Likes</dt><dd>49</dd></div><div><dt>Kommentare</dt><dd>3</dd></div></dl>
+          </article>
+          <div class="reel__nav">
+            <button class="btn btn--secondary" type="button" data-step="-1" aria-label="Vorheriges Video"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <span class="reel__count" aria-hidden="true"><span data-pos>1</span> von 10</span>
+            <button class="btn btn--secondary" type="button" data-step="1" aria-label="Nächstes Video"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <a class="link reel__link" href="https://www.instagram.com/reel/DZdHAyHo7s7/" target="_blank" rel="noopener" data-ig>Auf Instagram ansehen</a>
+          </div>
+        </div>
+        <div class="reel__stage span-6 start-7">
+          <video src="video/st-01.mp4" poster="../thumbs/st-01.jpg" width="540" height="960" controls playsinline muted loop preload="metadata" aria-label="Video: Can I see your Marathon time?"></video>
+          <video src="video/vh-03.mp4" poster="../thumbs/vh-03.jpg" width="540" height="960" controls playsinline muted loop preload="none" aria-label="Video: Wiens neues Bällebad für Erwachsene" hidden></video>
+          <video src="video/mms-01.mp4" poster="../thumbs/mms-01.jpg" width="540" height="960" controls playsinline muted loop preload="none" aria-label="Video: Startbudget 500 Euro als Musikproduzent" hidden></video>
+          <video src="video/vh-01.mp4" poster="../thumbs/vh-01.jpg" width="540" height="960" controls playsinline muted loop preload="none" aria-label="Video: Banksy in Wien" hidden></video>
+          <video src="video/vh-02.mp4" poster="../thumbs/vh-02.jpg" width="540" height="960" controls playsinline muted loop preload="none" aria-label="Video: Festtags-Eleganz in Wien im Test" hidden></video>
+          <video src="video/st-02.mp4" poster="../thumbs/st-02.jpg" width="540" height="960" controls playsinline muted loop preload="none" aria-label="Video: Traurigster Moment all year" hidden></video>
+          <video src="video/st-04.mp4" poster="../thumbs/st-04.jpg" width="540" height="960" controls playsinline muted loop preload="none" aria-label="Video: Day one, one day" hidden></video>
+          <video src="video/st-05.mp4" poster="../thumbs/st-05.jpg" width="540" height="960" controls playsinline muted loop preload="none" aria-label="Video: Ich glaube, ich laufe einen Kilometer in … Minuten" hidden></video>
+          <video src="video/d2y-02.mp4" poster="../thumbs/d2y-02.jpg" width="540" height="960" controls playsinline muted loop preload="none" aria-label="Video: Der Arzttermin, auf den du 3 Monate gewartet hast" hidden></video>
+          <video src="video/d2y-03.mp4" poster="../thumbs/d2y-03.jpg" width="540" height="960" controls playsinline muted loop preload="none" aria-label="Video: Wie lange dauert es, telefonisch einen Arzttermin zu buchen?" hidden></video>
+        </div>
+        <div class="reel__thumbs span-6" aria-label="Alle Videos">
+          <button type="button" data-go="0" aria-label="Video 1: Skit für meinen Laufkanal" aria-current="true"><img src="../thumbs/st-01.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-go="1" aria-label="Video 2: Bubble Planet für Viral House"><img src="../thumbs/vh-03.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-go="2" aria-label="Video 3: Interview für die Music &amp; Media School"><img src="../thumbs/mms-01.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-go="3" aria-label="Video 4: House of Banksy für Viral House"><img src="../thumbs/vh-01.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-go="4" aria-label="Video 5: KiK-Produkttest für Viral House"><img src="../thumbs/vh-02.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-go="5" aria-label="Video 6: Relatable-Reel für meinen Laufkanal"><img src="../thumbs/st-02.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-go="6" aria-label="Video 7: Vorher-Nachher für meinen Laufkanal"><img src="../thumbs/st-04.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-go="7" aria-label="Video 8: Challenge für meinen Laufkanal"><img src="../thumbs/st-05.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-go="8" aria-label="Video 9: POV-Skit für doc2you"><img src="../thumbs/d2y-02.jpg" alt="" loading="lazy"></button>
+          <button type="button" data-go="9" aria-label="Video 10: Selbsttest für doc2you"><img src="../thumbs/d2y-03.jpg" alt="" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="ueber" aria-labelledby="ueber-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-5 stack-5">
+          <h2 id="ueber-h">Live-Fernsehen und ein eigener Kanal</h2>
+          <p class="t-lead">Ich wohne in Wien und produziere als Einzelunternehmer Videos für Social Media.</p>
+          <p>Nochdazu arbeite ich im Schnitt bei Live-Sportproduktionen fürs Fernsehen, für ORF, Sky Sport Austria und Uppercut Broadcast. Ich schneide Highlights der österreichischen Bundesliga und der Fußball-WM und mache Live-Zeitlupen in der Bundesliga und in anderen Sportarten.</p>
+          <p>Seit fünf Jahren trainiere ich im Gym, dazu kommen Laufen und Triathlon. Das zeige ich auf <a class="link" href="https://www.instagram.com/stickley_running/" target="_blank" rel="noopener">@stickley_running</a>. Partner des Kanals ist Torino Protein.</p>
+          <p><a class="link" href="https://www.skysportaustria.at/mediathek/skypitchside-hautnah-beim-linzer-derby/" target="_blank" rel="noopener">Sky Pitchside beim Linzer Derby ansehen</a></p>
+        </div>
+        <div class="partners span-6 start-7" role="img" aria-label="Partner im Live-Fernsehen: ORF, Sky Sport Austria und Uppercut Broadcast">
+          <div><img src="img/logos/orf.svg" alt="" width="39" height="17"></div>
+          <div><picture><source media="(max-width: 639px)" srcset="img/logos/sky.svg" width="25" height="16"><img src="img/logos/sky-sport-austria.svg" alt="" width="246" height="30"></picture></div>
+          <div><img src="img/logos/uppercut.png" alt="" width="600" height="201"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="konzept" style="--h: 2" data-moment="pinned-chapters" aria-labelledby="konzept-h">
+    <div class="wrap mo-pc__grid">
+      <div class="mo-pc__text">
+        <h2 id="konzept-h">Vier Grundsätze hinter jedem Reel</h2>
+        <ol class="mo-pc__steps">
+          <li class="mo-pc__step">
+            <h3>Formate, die schon funktioniert haben</h3>
+            <p>Ich suche Videos, die weit besser liefen als der Rest ihres Kanals, und übertrage Aufbau und Tempo auf deinen Betrieb.</p>
+            <figure class="mo-pc__visual"><img src="img/skit-strasse.jpg" alt="Szene aus dem Skit Can I see your Marathon time auf einer Wiener Straße" width="720" height="540"></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3>Ein Funnel in drei Stufen</h3>
+            <p>Reichweite bringt neue Leute (TOFU). Inhalte mit Mehrwert binden sie und schaffen Vertrauen (MOFU). Klare Angebote machen aus ihnen Kunden (BOFU).</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit"><div class="funnel" role="img" aria-label="Funnel in drei Stufen: TOFU Reichweite, MOFU Vertrauen, BOFU Verkauf">
+              <div class="funnel__row" style="--w: 100%"><b>TOFU</b><span>Reichweite</span></div>
+              <div class="funnel__row" style="--w: 74%"><b>MOFU</b><span>Vertrauen</span></div>
+              <div class="funnel__row" style="--w: 48%"><b>BOFU</b><span>Verkauf</span></div>
+            </div></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3>Ein Ansprechpartner bis zum fertigen Video</h3>
+            <p>Ich plane mit dir, komme zum Dreh in deinen Betrieb und liefere fertig geschnitten.</p>
+            <figure class="mo-pc__visual"><img src="img/dreh-banksy.jpg" alt="Darstellerin beim Dreh vor dem Plakat der House of Banksy Ausstellung in Wien" width="720" height="540"></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3>Schnitt mit der Genauigkeit des Live-TV</h3>
+            <p>Live gibt es keinen zweiten Versuch. So schneide ich auch: auf den ersten Laut, ohne tote Pausen.</p>
+            <figure class="mo-pc__visual"><img src="img/sky-live.jpg" alt="Szene aus Sky Pitchside beim Linzer Derby" width="1280" height="720"></figure>
+          </li>
+        </ol>
+      </div>
+      <div class="mo-pc__visuals frame"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer closing footer--dark ground-inverse" id="kontakt" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--word">
+      <div class="section-head--split">
+        <div><h2 id="close-h">Buch einen Call mit mir</h2><p class="t-lead">15 Minuten, kostenlos, mit drei konkreten Ideen für deinen Account. Einstieg ist der 2-Wochen-Test, ohne Abo.</p></div>
+        <a class="btn btn--primary" href="https://calendly.com/stickler-business/new-meeting" target="_blank" rel="noopener">Call buchen<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      </div>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Valentin Stickler</a>
+          <p class="footer__lede">Reels für Betriebe und Marken in Wien.</p>
+        </div>
+        <div class="span-2 start-7 footer__col"><h3>Seite</h3><ul><li><a href="#arbeit">Videos</a></li><li><a href="#ueber">Über mich</a></li><li><a href="#konzept">Arbeitsweise</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Kontakt</h3><ul><li><a href="mailto:stickler.business@gmail.com">E-Mail schreiben</a></li><li><a href="https://wa.me/436802304895" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="tel:+436802304895">Anrufen</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Instagram</h3><ul><li><a href="https://www.instagram.com/stickley_running/" target="_blank" rel="noopener">@stickley_running</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Valentin Stickler, Wien &nbsp; <a href="../#impressum">Impressum</a> &nbsp; <a href="../#datenschutz">Datenschutz</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script>
+  /* Video-Slider: ein Video, Pfeil weiter. Läuft stumm, sobald der Bereich sichtbar ist; Ton über die Steuerung. */
+  (function () {
+    var box = document.querySelector("[data-reel]");
+    if (!box) return;
+    var vids = box.querySelectorAll(".reel__stage video");
+    var items = box.querySelectorAll(".reel__item");
+    var pos = box.querySelector("[data-pos]");
+    var ig = box.querySelector("[data-ig]");
+    var links = ["DZdHAyHo7s7","De4fssAkj2Q","DeKaKZtsCpT","DfhzTfFmfQZ","DfIDWJikWXR","DcLYPySIHGr","DcvukqYMEfp","DaNyCJUobx7","Dd_1XedtNex","DePXAfVta34"];
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var i = 0, visible = false;
+    function play() { if (visible && !reduce) { var p = vids[i].play(); if (p && p.catch) p.catch(function () {}); } }
+    function show(k) {
+      vids[i].pause(); vids[i].hidden = true; items[i].hidden = true;
+      i = (k + vids.length) % vids.length;
+      vids[i].hidden = false; items[i].hidden = false;
+      pos.textContent = i + 1;
+      ig.href = "https://www.instagram.com/reel/" + links[i] + "/";
+      vids[(i + 1) % vids.length].preload = "metadata";
+      box.querySelectorAll("[data-go]").forEach(function (t) { t.setAttribute("aria-current", t.getAttribute("data-go") == i ? "true" : "false"); });
+      play();
+    }
+    box.querySelectorAll("[data-step]").forEach(function (b) {
+      b.addEventListener("click", function () { show(i + parseInt(b.getAttribute("data-step"), 10)); });
+    });
+    box.querySelectorAll("[data-go]").forEach(function (t) {
+      t.addEventListener("click", function () { show(parseInt(t.getAttribute("data-go"), 10)); });
+    });
+    box.addEventListener("keydown", function (e) {
+      if (e.target.closest("video")) return;
+      if (e.key === "ArrowRight") { show(i + 1); e.preventDefault(); }
+      if (e.key === "ArrowLeft") { show(i - 1); e.preventDefault(); }
+    });
+    var x0 = null;
+    box.addEventListener("touchstart", function (e) { x0 = e.target.closest(".reel__info") ? e.touches[0].clientX : null; }, { passive: true });
+    box.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1));
+    });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) {
+        visible = en[0].isIntersecting;
+        if (visible) play(); else vids[i].pause();
+      }, { threshold: 0.3 }).observe(box);
+    }
+  })();
+</script>
+</body>
+</html>
