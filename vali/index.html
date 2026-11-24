@@ -76,8 +76,9 @@
   .funnel__row b { font-family: var(--font-display); font-weight: 400; font-size: clamp(20px, 2vw, 28px); letter-spacing: -0.01em; }
   .funnel__row span { font-size: var(--t-small); opacity: .8; }
   .partners { margin: 0; display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); gap: var(--gutter); min-height: min(640px, calc(100svh - 220px)); }
-  .partners > div { display: grid; place-items: center; background: #121214; border-radius: var(--r-lg); padding: var(--s-6) var(--s-7); }
-  .partners img { display: block; width: auto; max-width: 70%; }
+  .partners > div { display: flex; align-items: center; justify-content: center; min-width: 0; background: #121214; border-radius: var(--r-lg); padding: var(--s-6) var(--s-7); }
+  .partners img { display: block; width: auto; max-width: 70%; min-width: 0; object-fit: contain; }
+  .partners picture { display: contents; }
   .partners > div:nth-child(1) img { height: 64px; }
   .partners > div:nth-child(2) img { height: 34px; }
   .partners > div:nth-child(3) img { height: 72px; }
@@ -187,11 +188,6 @@
             <a class="btn btn--primary" href="https://calendly.com/stickler-business/new-meeting" target="_blank" rel="noopener">Call buchen<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
             <a class="btn btn--secondary" href="#arbeit">Videos ansehen</a>
           </div>
-          <dl class="hero-facts">
-            <div><dt>Bestes Reel</dt><dd>729.121 Aufrufe</dd></div>
-            <div><dt>Live-TV</dt><dd>Sportschnitt</dd></div>
-            <div><dt>Standort</dt><dd>Wien</dd></div>
-          </dl>
         </div>
         <div class="hero-visual frame frame--photo span-6 start-7">
           <img class="frame__img" src="valentin.jpg" style="--ly-pos: 50% 0%; object-position: 50% 0%" alt="Porträt von Valentin Stickler" width="720" height="900" fetchpriority="high" data-source="client" data-subject="Valentin Stickler">
